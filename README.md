@@ -16,4 +16,4 @@ GET /customizationRequests/{customerID}: Read Request. Dilakukan untuk melihat r
 
 Pada API ini, digunakan juga file JSON sebagai sumber data utama pada program python yang dibuat. Pada file core.json, telah disimpan beberapa data customizationRequest, customers, dan products.
 
-URL API: 52.152.205.190/docs
+URL API: http://52.152.205.190/docs
