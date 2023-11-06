@@ -15,3 +15,5 @@ DELETE /customizationRequests/{customizationID}: Delete Request. Dilakukan untuk
 GET /customizationRequests/{customerID}: Read Request. Dilakukan untuk melihat request berdasarkan customerID tertentu.
 
 Pada API ini, digunakan juga file JSON sebagai sumber data utama pada program python yang dibuat. Pada file core.json, telah disimpan beberapa data customizationRequest, customers, dan products.
+
+URL API: 52.152.205.190/docs
