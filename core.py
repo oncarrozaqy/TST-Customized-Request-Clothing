@@ -14,7 +14,7 @@ async def read_all_products():
 	return data['products']
 
 
-@app.get('/products{Cloth}')
+@app.get('/products/{Cloth}')
 async def clothes_preferences (font: str, color: str, size: str, productType: str):
 	preference_product = []
 	for product_item in data['products']:
