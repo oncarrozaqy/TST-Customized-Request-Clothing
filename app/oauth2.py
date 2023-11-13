@@ -30,7 +30,7 @@ def authenticate_user(username: str, password: str):
     if not result :
         return False
     else :
-        if verify(password, result[0][7]) :
+        if password == result[0][7] :
             return result[0]
         else :
             return False
