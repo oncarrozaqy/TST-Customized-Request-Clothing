@@ -7,7 +7,6 @@ from ..database import cursor, conn
 from ..oauth2 import get_current_user
 
 customization_router = APIRouter(
-    #prefix='/customizations',
     tags=['Customizations']
 )
 

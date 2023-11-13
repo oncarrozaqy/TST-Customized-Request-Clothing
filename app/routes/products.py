@@ -6,7 +6,6 @@ from ..database import cursor, conn
 from ..oauth2 import get_current_user
 
 product_router = APIRouter(
-    #prefix='/products',
     tags=['Products']
 )
 
