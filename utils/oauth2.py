@@ -2,8 +2,8 @@ from jose import JWTError, jwt
 from datetime import datetime, timedelta
 from typing import Annotated
 from .database import cursor
-from .models.tokendata import TokenData
-from .utils import verify_password
+from models.tokendata import TokenData
+from .authpass import verify_password
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 

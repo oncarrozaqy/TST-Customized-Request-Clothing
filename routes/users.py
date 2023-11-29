@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from typing import Annotated
-from ..models.users import Users
-from ..database import cursor, conn
-from ..oauth2 import get_current_user
+from models.users import Users
+from utils.database import cursor, conn
+from utils.oauth2 import get_current_user
 
 user_router = APIRouter(
     tags=['Users']

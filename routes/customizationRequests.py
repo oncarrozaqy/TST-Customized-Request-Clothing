@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from datetime import datetime
 from typing import Annotated
-from ..models.users import Users
-from ..models.customizationRequests import Customization
-from ..database import cursor, conn
-from ..oauth2 import get_current_user
+from models.users import Users
+from models.customizationRequests import Customization
+from utils.database import cursor, conn
+from utils.oauth2 import get_current_user
 
 customization_router = APIRouter(
     tags=['Customizations']
@@ -39,7 +39,7 @@ async def clothes_preferences(font: str, color: str, size: str, productType: str
     cursor.execute(query, (f"%{font}%", f"%{color}%", f"%{size}%", f"%{productType}%"))
     result = cursor.fetchall()
     if not result:
-        raise HTTPException(status_code=404, detail="Product not found")
+        raise HTTPException(status_code=404, detail="There's no product match your preference. Please try another one.")
     else:
         preference_product = []
         preference_product.append(result)
@@ -47,11 +47,12 @@ async def clothes_preferences(font: str, color: str, size: str, productType: str
 
 
 @customization_router.post('/customizationRequests')
-async def create_request(userID: int, productID:int, specialInstructions: str, user: Annotated[Users, Depends(get_current_user)]):
+async def create_request(productID:int, specialInstructions: str, user: Annotated[Users, Depends(get_current_user)]):
     query = ("SELECT * FROM products WHERE productID = %s")
     cursor.execute(query, (productID, ))
     result = cursor.fetchall()
     if result :
+        userID = user[0]
         query = ("SELECT MAX(customizationID) FROM customizationRequests")
         cursor.execute(query)
         result = cursor.fetchall()
