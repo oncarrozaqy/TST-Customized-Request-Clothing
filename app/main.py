@@ -11,3 +11,7 @@ app.include_router(auth_router)
 app.include_router(customization_router)
 app.include_router(user_router)
 app.include_router(product_router)
+
+@app.get("/")
+def root():
+    return {"message": f"Welcome to Customization API!"}
