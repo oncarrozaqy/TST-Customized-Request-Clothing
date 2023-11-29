@@ -33,6 +33,19 @@ async def read_request(userID:int, user: Annotated[Users, Depends(get_current_us
         raise HTTPException (status_code=404, detail=f'Request not found')
     return request_list
 
+@customization_router.get('/customizationRequests/{font}/{color}/{size}/{productType}')
+async def clothes_preferences(font: str, color: str, size: str, productType: str, user: Annotated[Users, Depends(get_current_user)]):
+    query = ("SELECT * FROM products WHERE font LIKE %s AND color LIKE %s AND size LIKE %s AND productType LIKE %s")
+    cursor.execute(query, (f"%{font}%", f"%{color}%", f"%{size}%", f"%{productType}%"))
+    result = cursor.fetchall()
+    if not result:
+        raise HTTPException(status_code=404, detail="Product not found")
+    else:
+        preference_product = []
+        preference_product.append(result)
+        return "Here are some recommendations for you", preference_product
+
+
 @customization_router.post('/customizationRequests')
 async def create_request(userID: int, productID:int, specialInstructions: str, user: Annotated[Users, Depends(get_current_user)]):
     query = ("SELECT * FROM products WHERE productID = %s")
