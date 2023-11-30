@@ -9,6 +9,7 @@ class Products(BaseModel):
     color: str
     size: str
     productType: str
+    imageurl: str
 
     class Config:
         json_schema_extra = {
@@ -20,6 +21,7 @@ class Products(BaseModel):
                 "font": "Arial",
                 "color": "Red",
                 "size": "Large",
-                "productType": "T-shirt"
+                "productType": "T-shirt",
+                "imageurl": "https:google.com"
             }
         }

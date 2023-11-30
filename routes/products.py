@@ -28,28 +28,28 @@ async def get_product_by_id(productID: int,user: Annotated[Users, Depends(get_cu
     return result
 
 @product_router.post('/products')
-async def create_product(description: str, price: float , stock: int, font: str, color: str, size:str, productType: str, user: Annotated[Users, Depends(get_current_user)]):
+async def create_product(description: str, price: float , stock: int, default_font: str, default_color: str, size:str, productType: str, imageurl: str, user: Annotated[Users, Depends(get_current_user)]):
     if user[8] != "admin" :
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="You are not an admin.")
     query = ("SELECT MAX(productID) FROM products")
     cursor.execute(query,)
     result = cursor.fetchall()
     productid = result[0][0] + 1
-    query = ("INSERT INTO products (productID, description, price, stock, font, color, size, productType) VALUES (%s, %s, %s, %s, %s,  %s, %s, %s)")
-    cursor.execute(query, (productid, description, price, stock, font, color, size, productType))
+    query = ("INSERT INTO products (productID, description, price, stock, default_font, default_color, size, productType, imageurl) VALUES (%s, %s, %s, %s, %s,  %s, %s, %s, %s)")
+    cursor.execute(query, (productid, description, price, stock, default_font, default_color, size, productType, imageurl))
     conn.commit()
     return "Product Created"
 
 @product_router.put('/products/{productID}')
-async def update_product(productID: int, description: str, price: float , stock: int, font: str, color: str, size:str, productType: str, user: Annotated[Users, Depends(get_current_user)]):
+async def update_product(productID: int, description: str, price: float , stock: int, default_font: str, default_color: str, size:str, productType: str, imageurl: str, user: Annotated[Users, Depends(get_current_user)]):
     if user[8] != "admin" :
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="You are not an admin.")
     query = ("SELECT * FROM products WHERE productID = %s")
     cursor.execute(query, (productID, ))
     result = cursor.fetchall()
     if result:
-        query = ("UPDATE products SET description = %s, price = %s, stock = %s, font = %s, color = %s, size = %s, productType = %s WHERE productID = %s")
-        cursor.execute(query, (description, price, stock, font, color, size, productType, productID))
+        query = ("UPDATE products SET description = %s, price = %s, stock = %s, default_font = %s, default_color = %s, size = %s, productType = %s, imageurl=%s WHERE productID = %s")
+        cursor.execute(query, (description, price, stock, default_font, default_color, size, productType, productID, imageurl))
         conn.commit()
         return "Product Updated"
     else:
