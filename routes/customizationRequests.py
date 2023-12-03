@@ -2,7 +2,6 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from datetime import datetime
 from typing import Annotated
 from models.users import Users
-from models.customizationRequests import Customization
 from utils.database import cursor, conn
 from utils.oauth2 import get_current_user
 
@@ -35,15 +34,13 @@ async def read_request(userID:int, user: Annotated[Users, Depends(get_current_us
 
 @customization_router.get('/customizationRequests/{font}/{color}/{size}/{productType}')
 async def clothes_preferences(font: str, color: str, size: str, productType: str, user: Annotated[Users, Depends(get_current_user)]):
-    query = ("SELECT * FROM products WHERE font LIKE %s AND color LIKE %s AND size LIKE %s AND productType LIKE %s")
+    query = ("SELECT * FROM products WHERE default_font LIKE %s AND default_color LIKE %s AND size LIKE %s AND productType LIKE %s")
     cursor.execute(query, (f"%{font}%", f"%{color}%", f"%{size}%", f"%{productType}%"))
     result = cursor.fetchall()
     if not result:
         raise HTTPException(status_code=404, detail="There's no product match your preference. Please try another one.")
     else:
-        preference_product = []
-        preference_product.append(result)
-        return "Here are some recommendations for you", preference_product
+        return result
 
 
 @customization_router.post('/customizationRequests')

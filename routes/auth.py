@@ -50,15 +50,17 @@ async def register_user(firstname: str, lastname: str, phonenumber: str, address
     cursor.execute(query, (email,))
     result = cursor.fetchall()
     if result :
-        return "Email unavailable! Try Another One!"
+        raise HTTPException(status_code=405, detail="Email unavailable! Try Another One!")
+        return
     else :
         query = ("SELECT * FROM users WHERE username = %s")
         cursor.execute(query, (username,))
         result = cursor.fetchall()
         if result :
-            return "Username unavailable! Try Another One!"
+            raise HTTPException(status_code=405, detail="Username unavailable! Try Another One!")
+            return 
         else :
             query = ("INSERT INTO users (userID, firstName, lastName, email, phoneNumber, shippingAddress, username, password , role) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)")
-            cursor.execute(query, (userid, firstname, lastname, phonenumber, address, email, username, hash_password(password), role))
+            cursor.execute(query, (userid, firstname, lastname, email, phonenumber, address, username, hash_password(password), role))
             conn.commit()
             return "Registration Completed!"
