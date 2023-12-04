@@ -17,7 +17,7 @@ const LoginForm: React.FC = () => {
         formData.append('password', password);
 
         try {
-            const response = await axios.post('http://127.0.0.1:8000/authentications/login', formData);
+            const response = await axios.post('https://customizedclothintegrated.salmonbeach-997612a6.australiaeast.azurecontainerapps.io//authentications/login', formData);
             console.log(response);
             localStorage.setItem('accessToken', response.data.access_token);
             console.log(localStorage.getItem('accessToken'));

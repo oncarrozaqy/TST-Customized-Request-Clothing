@@ -39,7 +39,7 @@ const CustomizeForm: React.FC<CustomizeFormProps> = (props) => {
             console.log(headers)
             console.log(data)
             // Lakukan pembaruan menu menggunakan Axios
-            const response = await axios.post(`http://127.0.0.1:8000/customizationRequests?productID=${props.idProduct}&specialInstructions=${data}`, null, { headers });
+            const response = await axios.post(`https://customizedclothintegrated.salmonbeach-997612a6.australiaeast.azurecontainerapps.io//customizationRequests?productID=${props.idProduct}&specialInstructions=${data}`, null, { headers });
 
             console.log(response);
             toast.success('Request created successfully');

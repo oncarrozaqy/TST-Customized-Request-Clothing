@@ -25,7 +25,7 @@ export default function RegistForm() {
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`http://127.0.0.1:8000/authentications/register?firstname=${formData.firstname}&lastname=${formData.lastname}&phonenumber=${formData.phonenumber}&address=${formData.address}&email=${formData.email}&password=${formData.password}&username=${formData.username}&role=${formData.role}`);
+            const response = await axios.post(`https://customizedclothintegrated.salmonbeach-997612a6.australiaeast.azurecontainerapps.io//authentications/register?firstname=${formData.firstname}&lastname=${formData.lastname}&phonenumber=${formData.phonenumber}&address=${formData.address}&email=${formData.email}&password=${formData.password}&username=${formData.username}&role=${formData.role}`);
             console.log(response);
             toast.success(response.data);
             navigate('/');

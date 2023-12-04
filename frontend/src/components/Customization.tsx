@@ -49,7 +49,7 @@ export default function Customization() {
             };
 
             // Make the Axios request with the authentication token
-            const response = await axios.get('http://127.0.0.1:8000/products', { headers });
+            const response = await axios.get('https://customizedclothintegrated.salmonbeach-997612a6.australiaeast.azurecontainerapps.io//products', { headers });
 
             // Transform each inner array into an object
             const productsArray = response.data.map((innerArray: [number, string, number, number, string, string, string, string, string]) => {
@@ -94,7 +94,7 @@ export default function Customization() {
             };
 
             // Make the Axios request with the authentication token
-            const response = await axios.get(`http://127.0.0.1:8000/customizationRequests/${font}/${color}/${size}/${productType}`, { headers });
+            const response = await axios.get(`https://customizedclothintegrated.salmonbeach-997612a6.australiaeast.azurecontainerapps.io//customizationRequests/${font}/${color}/${size}/${productType}`, { headers });
 
             console.log(response.data);
 
@@ -170,7 +170,7 @@ export default function Customization() {
             };
 
             // Make the Axios request with the authentication token
-            const response = await axios.get(`http://127.0.0.1:8000/quantity?material_input=${material}&weight_input=${weight}`, { headers });
+            const response = await axios.get(`https://customizedclothintegrated.salmonbeach-997612a6.australiaeast.azurecontainerapps.io//quantity?material_input=${material}&weight_input=${weight}`, { headers });
 
             console.log(response.data);
 
