@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from typing import Annotated
-from ..models.users import Users
-from ..models.products import Products
-from ..utils.database import cursor, conn
-from ..utils.oauth2 import get_current_user
+from models.users import Users
+from models.products import Products
+from utils.database import cursor, conn
+from utils.oauth2 import get_current_user
 
 product_router = APIRouter(
     tags=['Products']

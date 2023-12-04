@@ -2,10 +2,10 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from typing import Annotated
 from datetime import timedelta
-from ..utils.database import cursor
-from ..utils.oauth2 import create_access_token, authenticate_user, ACCESS_TOKEN_EXPIRE_MINUTES
-from ..utils.authpass import hash_password
-from ..utils.database import cursor, conn
+from utils.database import cursor
+from utils.oauth2 import create_access_token, authenticate_user, ACCESS_TOKEN_EXPIRE_MINUTES
+from utils.authpass import hash_password
+from utils.database import cursor, conn
 
 auth_router = APIRouter(
     prefix='/authentications',

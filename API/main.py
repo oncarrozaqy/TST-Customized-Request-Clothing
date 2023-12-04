@@ -1,10 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .routes.customizationRequests import customization_router
-from .routes.users import user_router
-from .routes.products import product_router
-from .routes.auth import auth_router
-from .routes.FashUp import fashup_router
+from routes.customizationRequests import customization_router
+from routes.users import user_router
+from routes.products import product_router
+from routes.auth import auth_router
+from routes.FashUp import fashup_router
 
 app = FastAPI()
 

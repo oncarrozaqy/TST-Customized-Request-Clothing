@@ -14,6 +14,6 @@ RUN pip install --no-cache-dir --upgrade -r /API/requirements.txt
 COPY . /API 
 
 # Tell uvicorn to start spin up our API, which will be running inside the container now
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "API.main:app", "--host", "0.0.0.0", "--port", "80"]
 
 RUN pip install fastapi uvicorn
