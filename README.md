@@ -24,4 +24,4 @@ Beberapa endpoint yang terdapat pada API ini adalah sebagai berikut.
 
 **GET /products/{Cloth}: Clothes Preferences.** Digunakan untuk menampilkan pakaian yang sesuai dengan preferensi pengguna dengan meminta beberapa parameter masukan.
 
-URL API: http://20.246.178.157/docs
+URL API: https://customizedclothintegrated.salmonbeach-997612a6.australiaeast.azurecontainerapps.io/docs
