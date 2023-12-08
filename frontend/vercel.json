@@ -1,0 +1,12 @@
+{
+    "routes": [
+        {
+            "src": "/register",
+            "dest": "/register.html"
+        },
+        {
+            "src": "/.*",
+            "dest": "/index.html"
+        }
+    ]
+}
