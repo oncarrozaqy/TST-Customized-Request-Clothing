@@ -1,27 +1,7 @@
 # TST-Customized-Request-Clothing
 
-Tugas berikut merupakan deployment terkait FastAPI service yang digunakan untuk memfasilitasi core service dari ide bisnis yang saya ajukan, yaitu Customized Request pada Handmade Clothing. Layanan ini memungkinkan pengguna untuk melakukan permintaan pesanan baju sesuai dengan keinginannya seperti font, size, color, dan tipe pakaian. Selain itu, pengguna juga dapat melakukan request order dengan memberikan beberapa instruksi khusus terkait baju yang diinginkan. 
+Tugas berikut merupakan deployment terkait FastAPI service yang digunakan untuk memfasilitasi core service dari ide bisnis yang saya ajukan, yaitu Customized Request pada Handmade Clothing. Layanan ini memungkinkan pengguna untuk melakukan permintaan pesanan baju sesuai dengan keinginannya seperti font, size, color, dan tipe pakaian. Selain itu, pengguna juga dapat melakukan request order dengan memberikan beberapa instruksi khusus terkait baju yang diinginkan. Layanan ini juga diintegrasikan dengan layanan FashUp. FashUp adalah layanan yang memungkinkan penggunanya untuk melakukan upcycling produk tekstil lama menjadi sebuah produk baru yang memiliki nilai lebih. FashUp akan membantu layanan ini untuk melakukan beberapa fungsionalitas yaitu rekomendasi produk dan estimasi kuantitas produk yang dapat dihasilkan berdasarkan material yang dimiliki.
 
-Beberapa endpoint yang terdapat pada API ini adalah sebagai berikut.
-
-**POST /authentications/login: Login.** Digunakan untuk autentikasi pengguna (akan dibahas lebih lanjut pada bagian berikutnya).
-
-**POST /register: Register.** Digunakan untuk mendaftarkan akun bagi pengguna yang belum memiliki akun
-
-**GET/customizationRequests: Read All Request.** Digunakan untuk membacat request terkait pakaian yang telah dibuat pengguna.
-
-**POST /customizationRequests: Create Request.** Digunakan untuk membuat request terkait pakaian yang sesuai dengan pengguna.
-
-**GET/customizationRequests/{userID}: Read Request.** Digunakan untuk membacat request terkait pakaian yang telah dibuat pengguna dengan userID tertentu.
-
-**DELETE /customizationRequests/{customizationID}: Delete Request.** Dilakukan untuk menghapus request yang telah dibuat berdasarkan customizationID tertentu.
-
-**GET /users: Read All Users.** Digunakan untuk menampilkan seluruh user yang terdaftar.
-
-**DELETE /users: Delete Users.** Digunakan untuk menghapus data user tertentu dari database
-
-**GET /products: Read All Products.** Digunakan untuk melihat keseluruhan produk pakaian yang tersedia.
-
-**GET /products/{Cloth}: Clothes Preferences.** Digunakan untuk menampilkan pakaian yang sesuai dengan preferensi pengguna dengan meminta beberapa parameter masukan.
-
-URL API: https://customizedclothintegrated.salmonbeach-997612a6.australiaeast.azurecontainerapps.io/docs
+URL API    : https://customizedclothintegrated.salmonbeach-997612a6.australiaeast.azurecontainerapps.io/docs
+URL Web    : https://tst-customized-request-clothing-oncars-projects.vercel.app/
+Dokumentasi: https://docs.google.com/document/d/1jwo-OLKqf1LSlZGb1a764ap1WRSZA3CnttugCAlfq-8/edit?usp=sharing
