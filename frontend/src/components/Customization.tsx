@@ -178,8 +178,8 @@ export default function Customization() {
             setIsFashUpRunning(true);
 
         } catch (error) {
-            console.error('An Error Occured', error);
-            toast.error('An Error Occured');
+            console.error(`You're not an admin`, error);
+            toast.error(`You're not an admin`);
         }
     };
     return (
@@ -314,6 +314,7 @@ export default function Customization() {
                         id='material'
                         value={material}
                         onChange={handleMaterialChange}
+                        required
                         className='border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500'
                     >
                         <option value='' disabled hidden>Select Material</option>
